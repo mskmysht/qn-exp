@@ -1,0 +1,1255 @@
+{
+    "is_parallel": false,
+    "stop_time": 6000000000000,
+    "nodes": [
+        {
+            "name": "r0",
+            "seed": 0,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r1",
+            "seed": 1,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r2",
+            "seed": 2,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r3",
+            "seed": 3,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r4",
+            "seed": 4,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r5",
+            "seed": 5,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r6",
+            "seed": 6,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r7",
+            "seed": 7,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r8",
+            "seed": 8,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r9",
+            "seed": 9,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r10",
+            "seed": 10,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r11",
+            "seed": 11,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r12",
+            "seed": 12,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r13",
+            "seed": 13,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r14",
+            "seed": 14,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r15",
+            "seed": 15,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r16",
+            "seed": 16,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r17",
+            "seed": 17,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r18",
+            "seed": 18,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        },
+        {
+            "name": "r19",
+            "seed": 19,
+            "memo_size": 20,
+            "type": "QuantumRouter"
+        }
+    ],
+    "qconnections": [
+        {
+            "node1": "r0",
+            "node2": "r1",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r0",
+            "node2": "r19",
+            "attenuation": 0.002,
+            "distance": 312.8689300804617,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r0",
+            "node2": "r6",
+            "attenuation": 0.002,
+            "distance": 1618.033988749895,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r1",
+            "node2": "r2",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r2",
+            "node2": "r3",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r3",
+            "node2": "r4",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r3",
+            "node2": "r16",
+            "attenuation": 0.002,
+            "distance": 1782.0130483767357,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r4",
+            "node2": "r5",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r5",
+            "node2": "r6",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r5",
+            "node2": "r10",
+            "attenuation": 0.002,
+            "distance": 1414.213562373095,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r6",
+            "node2": "r7",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r7",
+            "node2": "r8",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r8",
+            "node2": "r9",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r9",
+            "node2": "r10",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r10",
+            "node2": "r11",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r11",
+            "node2": "r12",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r12",
+            "node2": "r13",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r12",
+            "node2": "r17",
+            "attenuation": 0.002,
+            "distance": 1414.213562373095,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r12",
+            "node2": "r18",
+            "attenuation": 0.002,
+            "distance": 1618.033988749895,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r13",
+            "node2": "r14",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r14",
+            "node2": "r15",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r15",
+            "node2": "r16",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r16",
+            "node2": "r17",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r17",
+            "node2": "r18",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        },
+        {
+            "node1": "r18",
+            "node2": "r19",
+            "attenuation": 0.002,
+            "distance": 312.86893008046195,
+            "type": "meet_in_the_middle"
+        }
+    ],
+    "cconnections": [
+        {
+            "node1": "r0",
+            "node2": "r1",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r0",
+            "node2": "r2",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r0",
+            "node2": "r3",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r0",
+            "node2": "r4",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r0",
+            "node2": "r5",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r0",
+            "node2": "r6",
+            "delay": 1618033988.7498949
+        },
+        {
+            "node1": "r0",
+            "node2": "r7",
+            "delay": 1930902918.8303568
+        },
+        {
+            "node1": "r0",
+            "node2": "r8",
+            "delay": 2243771848.9108186
+        },
+        {
+            "node1": "r0",
+            "node2": "r9",
+            "delay": 2556640778.991281
+        },
+        {
+            "node1": "r0",
+            "node2": "r10",
+            "delay": 2869509709.0717416
+        },
+        {
+            "node1": "r0",
+            "node2": "r11",
+            "delay": 2556640778.99128
+        },
+        {
+            "node1": "r0",
+            "node2": "r12",
+            "delay": 2243771848.910818
+        },
+        {
+            "node1": "r0",
+            "node2": "r13",
+            "delay": 2190082510.5632334
+        },
+        {
+            "node1": "r0",
+            "node2": "r14",
+            "delay": 1877213580.4827714
+        },
+        {
+            "node1": "r0",
+            "node2": "r15",
+            "delay": 1564344650.4023094
+        },
+        {
+            "node1": "r0",
+            "node2": "r16",
+            "delay": 1251475720.3218477
+        },
+        {
+            "node1": "r0",
+            "node2": "r17",
+            "delay": 938606790.2413856
+        },
+        {
+            "node1": "r0",
+            "node2": "r18",
+            "delay": 625737860.1609237
+        },
+        {
+            "node1": "r0",
+            "node2": "r19",
+            "delay": 312868930.08046174
+        },
+        {
+            "node1": "r1",
+            "node2": "r2",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r1",
+            "node2": "r3",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r1",
+            "node2": "r4",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r1",
+            "node2": "r5",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r1",
+            "node2": "r6",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r1",
+            "node2": "r7",
+            "delay": 1877213580.4827716
+        },
+        {
+            "node1": "r1",
+            "node2": "r8",
+            "delay": 2190082510.563234
+        },
+        {
+            "node1": "r1",
+            "node2": "r9",
+            "delay": 2502951440.643696
+        },
+        {
+            "node1": "r1",
+            "node2": "r10",
+            "delay": 2665689282.694943
+        },
+        {
+            "node1": "r1",
+            "node2": "r11",
+            "delay": 2869509709.0717425
+        },
+        {
+            "node1": "r1",
+            "node2": "r12",
+            "delay": 2556640778.9912806
+        },
+        {
+            "node1": "r1",
+            "node2": "r13",
+            "delay": 2502951440.643696
+        },
+        {
+            "node1": "r1",
+            "node2": "r14",
+            "delay": 2190082510.5632334
+        },
+        {
+            "node1": "r1",
+            "node2": "r15",
+            "delay": 1877213580.4827714
+        },
+        {
+            "node1": "r1",
+            "node2": "r16",
+            "delay": 1564344650.4023094
+        },
+        {
+            "node1": "r1",
+            "node2": "r17",
+            "delay": 1251475720.3218477
+        },
+        {
+            "node1": "r1",
+            "node2": "r18",
+            "delay": 938606790.2413856
+        },
+        {
+            "node1": "r1",
+            "node2": "r19",
+            "delay": 625737860.1609237
+        },
+        {
+            "node1": "r2",
+            "node2": "r3",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r2",
+            "node2": "r4",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r2",
+            "node2": "r5",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r2",
+            "node2": "r6",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r2",
+            "node2": "r7",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r2",
+            "node2": "r8",
+            "delay": 1877213580.4827716
+        },
+        {
+            "node1": "r2",
+            "node2": "r9",
+            "delay": 2190082510.563234
+        },
+        {
+            "node1": "r2",
+            "node2": "r10",
+            "delay": 2352820352.6144805
+        },
+        {
+            "node1": "r2",
+            "node2": "r11",
+            "delay": 2665689282.6949425
+        },
+        {
+            "node1": "r2",
+            "node2": "r12",
+            "delay": 2869509709.0717425
+        },
+        {
+            "node1": "r2",
+            "node2": "r13",
+            "delay": 2815820370.7241573
+        },
+        {
+            "node1": "r2",
+            "node2": "r14",
+            "delay": 2502951440.643696
+        },
+        {
+            "node1": "r2",
+            "node2": "r15",
+            "delay": 2190082510.5632334
+        },
+        {
+            "node1": "r2",
+            "node2": "r16",
+            "delay": 1877213580.4827714
+        },
+        {
+            "node1": "r2",
+            "node2": "r17",
+            "delay": 1564344650.4023094
+        },
+        {
+            "node1": "r2",
+            "node2": "r18",
+            "delay": 1251475720.3218477
+        },
+        {
+            "node1": "r2",
+            "node2": "r19",
+            "delay": 938606790.2413856
+        },
+        {
+            "node1": "r3",
+            "node2": "r4",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r3",
+            "node2": "r5",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r3",
+            "node2": "r6",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r3",
+            "node2": "r7",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r3",
+            "node2": "r8",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r3",
+            "node2": "r9",
+            "delay": 1877213580.4827716
+        },
+        {
+            "node1": "r3",
+            "node2": "r10",
+            "delay": 2039951422.534019
+        },
+        {
+            "node1": "r3",
+            "node2": "r11",
+            "delay": 2352820352.6144805
+        },
+        {
+            "node1": "r3",
+            "node2": "r12",
+            "delay": 2665689282.6949425
+        },
+        {
+            "node1": "r3",
+            "node2": "r13",
+            "delay": 2720619838.618121
+        },
+        {
+            "node1": "r3",
+            "node2": "r14",
+            "delay": 2407750908.5376596
+        },
+        {
+            "node1": "r3",
+            "node2": "r15",
+            "delay": 2094881978.457198
+        },
+        {
+            "node1": "r3",
+            "node2": "r16",
+            "delay": 1782013048.3767357
+        },
+        {
+            "node1": "r3",
+            "node2": "r17",
+            "delay": 1877213580.4827714
+        },
+        {
+            "node1": "r3",
+            "node2": "r18",
+            "delay": 1564344650.4023094
+        },
+        {
+            "node1": "r3",
+            "node2": "r19",
+            "delay": 1251475720.3218477
+        },
+        {
+            "node1": "r4",
+            "node2": "r5",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r4",
+            "node2": "r6",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r4",
+            "node2": "r7",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r4",
+            "node2": "r8",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r4",
+            "node2": "r9",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r4",
+            "node2": "r10",
+            "delay": 1727082492.453557
+        },
+        {
+            "node1": "r4",
+            "node2": "r11",
+            "delay": 2039951422.534019
+        },
+        {
+            "node1": "r4",
+            "node2": "r12",
+            "delay": 2352820352.6144805
+        },
+        {
+            "node1": "r4",
+            "node2": "r13",
+            "delay": 2665689282.6949425
+        },
+        {
+            "node1": "r4",
+            "node2": "r14",
+            "delay": 2720619838.618121
+        },
+        {
+            "node1": "r4",
+            "node2": "r15",
+            "delay": 2407750908.5376596
+        },
+        {
+            "node1": "r4",
+            "node2": "r16",
+            "delay": 2094881978.457198
+        },
+        {
+            "node1": "r4",
+            "node2": "r17",
+            "delay": 2190082510.5632334
+        },
+        {
+            "node1": "r4",
+            "node2": "r18",
+            "delay": 1877213580.4827714
+        },
+        {
+            "node1": "r4",
+            "node2": "r19",
+            "delay": 1564344650.4023094
+        },
+        {
+            "node1": "r5",
+            "node2": "r6",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r5",
+            "node2": "r7",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r5",
+            "node2": "r8",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r5",
+            "node2": "r9",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r5",
+            "node2": "r10",
+            "delay": 1414213562.373095
+        },
+        {
+            "node1": "r5",
+            "node2": "r11",
+            "delay": 1727082492.453557
+        },
+        {
+            "node1": "r5",
+            "node2": "r12",
+            "delay": 2039951422.534019
+        },
+        {
+            "node1": "r5",
+            "node2": "r13",
+            "delay": 2352820352.6144805
+        },
+        {
+            "node1": "r5",
+            "node2": "r14",
+            "delay": 2665689282.6949425
+        },
+        {
+            "node1": "r5",
+            "node2": "r15",
+            "delay": 2720619838.618121
+        },
+        {
+            "node1": "r5",
+            "node2": "r16",
+            "delay": 2407750908.5376596
+        },
+        {
+            "node1": "r5",
+            "node2": "r17",
+            "delay": 2502951440.643696
+        },
+        {
+            "node1": "r5",
+            "node2": "r18",
+            "delay": 2190082510.5632334
+        },
+        {
+            "node1": "r5",
+            "node2": "r19",
+            "delay": 1877213580.4827714
+        },
+        {
+            "node1": "r6",
+            "node2": "r7",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r6",
+            "node2": "r8",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r6",
+            "node2": "r9",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r6",
+            "node2": "r10",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r6",
+            "node2": "r11",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r6",
+            "node2": "r12",
+            "delay": 1877213580.4827716
+        },
+        {
+            "node1": "r6",
+            "node2": "r13",
+            "delay": 2190082510.563234
+        },
+        {
+            "node1": "r6",
+            "node2": "r14",
+            "delay": 2502951440.643696
+        },
+        {
+            "node1": "r6",
+            "node2": "r15",
+            "delay": 2815820370.7241573
+        },
+        {
+            "node1": "r6",
+            "node2": "r16",
+            "delay": 2720619838.618121
+        },
+        {
+            "node1": "r6",
+            "node2": "r17",
+            "delay": 2556640778.99128
+        },
+        {
+            "node1": "r6",
+            "node2": "r18",
+            "delay": 2243771848.910818
+        },
+        {
+            "node1": "r6",
+            "node2": "r19",
+            "delay": 1930902918.8303566
+        },
+        {
+            "node1": "r7",
+            "node2": "r8",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r7",
+            "node2": "r9",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r7",
+            "node2": "r10",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r7",
+            "node2": "r11",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r7",
+            "node2": "r12",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r7",
+            "node2": "r13",
+            "delay": 1877213580.4827716
+        },
+        {
+            "node1": "r7",
+            "node2": "r14",
+            "delay": 2190082510.563234
+        },
+        {
+            "node1": "r7",
+            "node2": "r15",
+            "delay": 2502951440.643696
+        },
+        {
+            "node1": "r7",
+            "node2": "r16",
+            "delay": 2815820370.7241573
+        },
+        {
+            "node1": "r7",
+            "node2": "r17",
+            "delay": 2869509709.0717416
+        },
+        {
+            "node1": "r7",
+            "node2": "r18",
+            "delay": 2556640778.99128
+        },
+        {
+            "node1": "r7",
+            "node2": "r19",
+            "delay": 2243771848.910818
+        },
+        {
+            "node1": "r8",
+            "node2": "r9",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r8",
+            "node2": "r10",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r8",
+            "node2": "r11",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r8",
+            "node2": "r12",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r8",
+            "node2": "r13",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r8",
+            "node2": "r14",
+            "delay": 1877213580.4827716
+        },
+        {
+            "node1": "r8",
+            "node2": "r15",
+            "delay": 2190082510.563234
+        },
+        {
+            "node1": "r8",
+            "node2": "r16",
+            "delay": 2502951440.643696
+        },
+        {
+            "node1": "r8",
+            "node2": "r17",
+            "delay": 2665689282.694943
+        },
+        {
+            "node1": "r8",
+            "node2": "r18",
+            "delay": 2869509709.0717425
+        },
+        {
+            "node1": "r8",
+            "node2": "r19",
+            "delay": 2556640778.9912806
+        },
+        {
+            "node1": "r9",
+            "node2": "r10",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r9",
+            "node2": "r11",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r9",
+            "node2": "r12",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r9",
+            "node2": "r13",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r9",
+            "node2": "r14",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r9",
+            "node2": "r15",
+            "delay": 1877213580.4827716
+        },
+        {
+            "node1": "r9",
+            "node2": "r16",
+            "delay": 2190082510.563234
+        },
+        {
+            "node1": "r9",
+            "node2": "r17",
+            "delay": 2352820352.6144805
+        },
+        {
+            "node1": "r9",
+            "node2": "r18",
+            "delay": 2556640778.991281
+        },
+        {
+            "node1": "r9",
+            "node2": "r19",
+            "delay": 2869509709.0717425
+        },
+        {
+            "node1": "r10",
+            "node2": "r11",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r10",
+            "node2": "r12",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r10",
+            "node2": "r13",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r10",
+            "node2": "r14",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r10",
+            "node2": "r15",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r10",
+            "node2": "r16",
+            "delay": 1877213580.4827716
+        },
+        {
+            "node1": "r10",
+            "node2": "r17",
+            "delay": 2039951422.534019
+        },
+        {
+            "node1": "r10",
+            "node2": "r18",
+            "delay": 2243771848.9108186
+        },
+        {
+            "node1": "r10",
+            "node2": "r19",
+            "delay": 2556640778.991281
+        },
+        {
+            "node1": "r11",
+            "node2": "r12",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r11",
+            "node2": "r13",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r11",
+            "node2": "r14",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r11",
+            "node2": "r15",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r11",
+            "node2": "r16",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r11",
+            "node2": "r17",
+            "delay": 1727082492.453557
+        },
+        {
+            "node1": "r11",
+            "node2": "r18",
+            "delay": 1930902918.8303568
+        },
+        {
+            "node1": "r11",
+            "node2": "r19",
+            "delay": 2243771848.9108186
+        },
+        {
+            "node1": "r12",
+            "node2": "r13",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r12",
+            "node2": "r14",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r12",
+            "node2": "r15",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r12",
+            "node2": "r16",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r12",
+            "node2": "r17",
+            "delay": 1414213562.373095
+        },
+        {
+            "node1": "r12",
+            "node2": "r18",
+            "delay": 1618033988.7498949
+        },
+        {
+            "node1": "r12",
+            "node2": "r19",
+            "delay": 1930902918.8303568
+        },
+        {
+            "node1": "r13",
+            "node2": "r14",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r13",
+            "node2": "r15",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r13",
+            "node2": "r16",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r13",
+            "node2": "r17",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r13",
+            "node2": "r18",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r13",
+            "node2": "r19",
+            "delay": 1877213580.4827716
+        },
+        {
+            "node1": "r14",
+            "node2": "r15",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r14",
+            "node2": "r16",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r14",
+            "node2": "r17",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r14",
+            "node2": "r18",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r14",
+            "node2": "r19",
+            "delay": 1564344650.4023097
+        },
+        {
+            "node1": "r15",
+            "node2": "r16",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r15",
+            "node2": "r17",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r15",
+            "node2": "r18",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r15",
+            "node2": "r19",
+            "delay": 1251475720.321848
+        },
+        {
+            "node1": "r16",
+            "node2": "r17",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r16",
+            "node2": "r18",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r16",
+            "node2": "r19",
+            "delay": 938606790.2413858
+        },
+        {
+            "node1": "r17",
+            "node2": "r18",
+            "delay": 312868930.080462
+        },
+        {
+            "node1": "r17",
+            "node2": "r19",
+            "delay": 625737860.160924
+        },
+        {
+            "node1": "r18",
+            "node2": "r19",
+            "delay": 312868930.080462
+        }
+    ]
+}
