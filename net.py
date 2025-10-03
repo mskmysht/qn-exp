@@ -27,18 +27,32 @@ from prettytable import PrettyTable
 class CustomMemoryManager:
     def __init__(self, inner: MemoryManager):
         self.__inner = inner
-        self.ent_count = 0
-        self.raw_count = 0
-        self.occupied_count = 0
+        # self.ent_count = 0
+        # self.raw_count = 0
+        # self.occupied_count = 0
+        self.indices: list[int] = []
+        self.trans_curr_states: list[str] = []
+        self.trans_next_states: list[str] = []
+        self.trans_curr_remote_memos: list[str | None] = []
+        self.trans_next_remote_memos: list[str | None] = []
+        self.trans_ticks: list[int] = []
 
     def update(self, memory: Memory, state: str) -> None:
+        self.trans_ticks.append(int(memory.timeline.now()))
+        info = self.__inner.get_info_by_memory(memory)
+        self.indices.append(info.index)
+        self.trans_curr_states.append(info.state)
+        self.trans_next_states.append(state)
+        self.trans_curr_remote_memos.append(info.remote_memo)
+        self.trans_next_remote_memos.append(memory.entangled_memory["memo_id"])
+
         self.__inner.update(memory, state)
-        if state == "RAW":
-            self.raw_count += 1
-        elif state == "ENTANGLED":
-            self.ent_count += 1
-        else:
-            self.occupied_count += 1
+        # if state == "RAW":
+        #     self.raw_count += 1
+        # elif state == "ENTANGLED":
+        #     self.ent_count += 1
+        # else:
+        #     self.occupied_count += 1
 
     def set_resource_manager(self, resource_manager: ResourceManager) -> None:
         return self.__inner.set_resource_manager(resource_manager)
@@ -158,7 +172,12 @@ def show_memories(router: QuantumRouter):
             )
 
 
-def run(path: str, end_node_names: list[str]):
+def run(
+    json_path: str,
+    end_node_names: list[str],
+    min_memo_size: int = 1,
+    max_memo_size: int = 5,
+):
     memo_params = MemoryParams(
         frequency=2e3,
         coherence_time=0,
@@ -179,7 +198,7 @@ def run(path: str, end_node_names: list[str]):
         qc_frequency=1e11,
     )
 
-    topo = load_network(path)
+    topo = load_network(json_path)
     set_parameters(topo, memo_params, swap_params, detector_params, qchannel_params)
 
     tl = topo.get_timeline()
@@ -190,18 +209,18 @@ def run(path: str, end_node_names: list[str]):
     # n1, _ = request(topo, "end1", "end2", 12)
     # n3, _ = request(topo, "end3", "end4", 13)
     apps: list[RandomRequestApp] = []
-    router_names = end_node_names[:]
-    end_nodes: list[QuantumRouter] = [r for r in topo.get_nodes_by_type(RouterNetTopo.QUANTUM_ROUTER) if r.name in router_names]  # type: ignore
+    end_nodes: list[QuantumRouter] = [r for r in topo.get_nodes_by_type(RouterNetTopo.QUANTUM_ROUTER) if r.name in end_node_names]  # type: ignore
+    router_names = [end_node.name for end_node in end_nodes]
     for i, router in enumerate(end_nodes):
         other_routers = router_names[:i] + router_names[i + 1 :]
         app = RandomRequestApp(
             router,
             other_routers,
-            i,
+            i + 10,
             min_dur=400_000_000_000,
             max_dur=500_000_000_000,
-            min_size=1,
-            max_size=5,
+            min_size=min_memo_size,
+            max_size=max_memo_size,  # exclusive
             min_fidelity=0.8,
             max_fidelity=0.85,
         )
@@ -211,12 +230,12 @@ def run(path: str, end_node_names: list[str]):
     tl.init()
     tl.run()
 
-    for app in apps:
-        print(f"node {app.node.name}")
-        print(f"\treservations: {app.reserves}")
-        print(f"\tthroughput: {app.all_throughput}")
+    # for app in apps:
+    #     print(f"node {app.node.name}")
+    #     print(f"\treservations: {app.reserves}")
+    #     print(f"\tthroughput: {app.all_throughput}")
 
-    print("\nReservations Table:\n")
+    print("\nReservations Table:")
 
     num_path_crossed: dict[str, int] = {}
 
@@ -254,24 +273,45 @@ def run(path: str, end_node_names: list[str]):
 
     print(tbl)
 
-    mem_tbl = PrettyTable(
-        [
-            "Node",
-            "Raw count",
-            "Entangled count",
-            "Occupied count",
-            "Number of path crossed",
-        ]
-    )
+    # mem_tbl = PrettyTable(
+    #     [
+    #         "Node",
+    #         "Raw count",
+    #         "Entangled count",
+    #         "Occupied count",
+    #         "Number of paths",
+    #     ]
+    # )
+    import polars as pl
+
+    df = pl.DataFrame()
     for router in topo.get_nodes_by_type(RouterNetTopo.QUANTUM_ROUTER):
         mm: CustomMemoryManager = router.resource_manager.memory_manager  # type: ignore
-        mem_tbl.add_row(
+        ddf = pl.DataFrame(
             [
-                router.name,
-                mm.raw_count,
-                mm.ent_count,
-                mm.occupied_count,
-                num_path_crossed.get(router.name, 0),
+                pl.Series("tick", mm.trans_ticks, dtype=pl.Int64),
+                pl.Series("index", mm.indices, dtype=pl.Int32),
+                pl.Series("curr_state", mm.trans_curr_states, dtype=pl.Utf8),
+                pl.Series("next_state", mm.trans_next_states, dtype=pl.Utf8),
+                pl.Series(
+                    "remote_curr_memo", mm.trans_curr_remote_memos, dtype=pl.Utf8
+                ),
+                pl.Series(
+                    "remote_next_memo", mm.trans_next_remote_memos, dtype=pl.Utf8
+                ),
             ]
         )
-    print(mem_tbl)
+        if not ddf.is_empty():
+            df = df.vstack(ddf.with_columns(pl.lit(router.name).alias("node_name")))
+        # mem_tbl.add_row(
+        #     [
+        #         router.name,
+        #         mm.raw_count,
+        #         mm.ent_count,
+        #         mm.occupied_count,
+        #         num_path_crossed.get(router.name, 0),
+        #     ]
+        # )
+    # print(mem_tbl)
+    df.write_csv(f"log_memory_transactions.csv")
+    # print(df.lazy().filter(pl.col("node_name") == "r6").collect())

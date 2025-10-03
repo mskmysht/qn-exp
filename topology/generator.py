@@ -39,7 +39,36 @@ class Top:
     cconnections: list[CConnection]
 
 
-def generate():
+def __generate_json(
+    name: str, g: nx.Graph, memo_size: int = 20, stop_time: int = 6_000_000_000_000
+):
+    n = g.number_of_nodes()
+    nodes = [Node(f"r{i}", i, memo_size) for i in range(n)]
+    qcons = [
+        QConnection(f"r{i}", f"r{j}", 2e-3, g.edges[i, j]["length"]) for i, j in g.edges
+    ]
+    ccons = [
+        CConnection(
+            f"r{i}", f"r{j}", nx.shortest_path_length(g, i, j, weight="length") * 1e6
+        )
+        for i in range(n - 1)
+        for j in range(i + 1, n)
+    ]
+
+    top = Top(
+        is_parallel=False,
+        stop_time=stop_time,
+        nodes=nodes,
+        qconnections=qcons,
+        cconnections=ccons,
+    )
+
+    jsonstr = json.dumps(asdict(top), indent=4)
+    with open(f"{name}.json", "w") as f:
+        f.write(jsonstr)
+
+
+def generate_cycle():
     n = 20
     g = nx.cycle_graph(n)
     rng = rnd.default_rng(0)
@@ -60,47 +89,19 @@ def generate():
         g.edges[i, j]["length"] = 2 * radius * math.sin(math.pi / n * k)
 
     nx.write_edgelist(g, "ring.edgelist")
-
-    memo_size = 20
-
-    nodes = [Node(f"r{i}", i, memo_size) for i in range(n)]
-    qcons = [
-        QConnection(f"r{i}", f"r{j}", 2e-3, g.edges[i, j]["length"]) for i, j in g.edges
-    ]
-    ccons = [
-        CConnection(
-            f"r{i}", f"r{j}", nx.shortest_path_length(g, i, j, weight="length") * 1e6
-        )
-        for i in range(n - 1)
-        for j in range(i + 1, n)
-    ]
-
-    top = Top(
-        is_parallel=False,
-        stop_time=6_000_000_000_000,
-        nodes=nodes,
-        qconnections=qcons,
-        cconnections=ccons,
-    )
-
-    jsonstr = json.dumps(asdict(top), indent=4)
-    with open("ring.json", "w") as f:
-        f.write(jsonstr)
-
+    __generate_json("ring", g)
     print(g.degree)
 
 
-def metrics():
+def generate_ba(
+    name: str, node_size: int, attach_edges: int, seed: int, scale: float = 1000
+):
+    g = nx.barabasi_albert_graph(node_size, attach_edges, seed)
+    l = nx.spring_layout(g, seed=seed)
     import numpy as np
 
-    g = nx.read_edgelist("ring.edgelist")
-    bc: dict[str, float] = nx.betweenness_centrality(g)
-    bc_values = np.array([bc[f"{i}"] for i in range(g.number_of_nodes())])
-    idxs = np.argsort(bc_values)[::-1]
-    for i in idxs:
-        print(f"BC({i:2}): {bc_values[i]}")
+    for i, j in g.edges:
+        g.edges[i, j]["length"] = np.linalg.norm(l[i] - l[j]) * scale
 
-
-if __name__ == "__main__":
-    # generate()
-    metrics()
+    nx.write_edgelist(g, f"{name}.edgelist")
+    __generate_json(name, g)
